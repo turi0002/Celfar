@@ -138,6 +138,6 @@ public class MainActivity extends Activity {
 
     }
            public void onClicked(){
-
+            int x;
     }
 }
