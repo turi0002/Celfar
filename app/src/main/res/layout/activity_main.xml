@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/tv3"
         android:layout_alignBottom="@+id/tv3"
-        android:layout_alignStart="@+id/radioGroup"
+        android:layout_alignStart="@+id/radio_group"
         android:text="@string/far"
         android:textStyle="bold" />
 
