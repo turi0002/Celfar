@@ -1,9 +1,11 @@
 package com.example.user.cel_far;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -19,6 +21,7 @@ public class MainActivity extends Activity {
     TextView tv2;
     EditText et1;
     EditText et2;
+    int registerCode =1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,8 +138,28 @@ public class MainActivity extends Activity {
 
             }
         });
+          b1.setOnClickListener(new View.OnClickListener() {
 
+
+              @Override
+              public void onClick(View view) {
+                  if(r2.isChecked()) {
+                      Intent i = new Intent(MainActivity.this, Cel_far_2.class);
+                      i.putExtra("content1", et1.getText().toString());
+                      i.putExtra("content3","Calculate");
+                      startActivityForResult(i, registerCode);
+                  }
+                  else if(r1.isChecked()){
+                      Intent i = new Intent(MainActivity.this, Cel_far_2.class);
+                      i.putExtra("content1", et1.getText().toString());
+                      i.putExtra("content2", et2.getText().toString());
+                      i.putExtra("content3","check");
+                      startActivityForResult(i, registerCode);
+                  }
+              }
+          });
     }
+
            public void onClicked(){
             int x;
     }

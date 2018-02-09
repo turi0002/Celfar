@@ -8,4 +8,5 @@
     <string name="far">Frarenheit</string>
     <string name="title_activity_cel_far_2">Cel_far_2</string>
     <string name="returner">Return</string>
+    <string name="prc_intro">set the numbers precision</string>
 </resources>
