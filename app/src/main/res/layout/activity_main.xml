@@ -4,13 +4,18 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@android:style/Theme.WithActionBar" />
+
     <TextView
         android:id="@+id/tv1"
+        android:layout_below="@id/toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="24dp"
         android:text="@string/intro"
         android:textStyle="bold" />
 
@@ -102,7 +107,7 @@
         android:id="@+id/iv1"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/toolbar"
         android:layout_toEndOf="@+id/tv1"
         android:src="@mipmap/logo" />
 

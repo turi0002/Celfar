@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 public class MainActivity extends Activity {
     RadioButton r1;
@@ -22,10 +23,14 @@ public class MainActivity extends Activity {
     EditText et1;
     EditText et2;
     int registerCode =1;
+    Toolbar tb1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tb1 = findViewById(R.id.toolbar);
+        tb1.setLogo(R.mipmap.ic_launcher);
+        setActionBar(tb1);
         r1 = findViewById(R.id.rb1);
         r2 = findViewById(R.id.rb2);
         b1 = (Button) findViewById(R.id.bt1);

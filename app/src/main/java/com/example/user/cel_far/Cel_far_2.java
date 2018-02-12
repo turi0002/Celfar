@@ -32,7 +32,10 @@ int registerCode =1;
             Double get1= Double.parseDouble(i.getStringExtra("content1"));
             tv1.setText("the temprature "+get1+"F, is converted to "+(get1-32)*5/9);
         }
-        b1.setOnClickListener();
+
+        }
+        public void onClicked(){
+        finish();
         }
     }
 
