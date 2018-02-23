@@ -1,16 +1,22 @@
 package com.example.user.cel_far;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 public class MainActivity extends Activity {
@@ -29,7 +35,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tb1 = findViewById(R.id.toolbar);
-        tb1.setLogo(R.mipmap.ic_launcher);
+        tb1.setLogo(R.mipmap.ic_launcher_round);
         setActionBar(tb1);
         r1 = findViewById(R.id.rb1);
         r2 = findViewById(R.id.rb2);
@@ -45,9 +51,13 @@ public class MainActivity extends Activity {
                 if (r1.isChecked()) {
                     if (et1.getText().toString().length()>0 && et2.getText().toString().length()>0) {
                     b1.setEnabled(true);
+                        et1.setEnabled(true);
+                        et2.setEnabled(true);
                     }
                     else
                         b1.setEnabled(false);
+                        et1.setEnabled(true);
+                        et2.setEnabled(true);
                 }
                 if(r2.isChecked()){
                     if (et1.getText().toString().length()>0 ||  et2.getText().toString().length()>0){
@@ -167,5 +177,39 @@ public class MainActivity extends Activity {
 
            public void onClicked(){
             int x;
+    } {
+}
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.manu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.setting:
+                Context context = getApplicationContext();
+                CharSequence text = "setting push";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                return true;
+            case R.id.help:
+                Context context1 = getApplicationContext();
+                CharSequence text2 = "help please";
+                int duration2 = Toast.LENGTH_SHORT;
+                Toast toast1 = Toast.makeText(context1, text2, duration2);
+                toast1.show();
+
+
+                return true;
+            case R.id.exit:
+                this.finishAffinity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

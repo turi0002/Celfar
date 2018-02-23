@@ -3,6 +3,7 @@ package com.example.user.cel_far;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -34,7 +35,7 @@ int registerCode =1;
         }
 
         }
-        public void onClicked(){
+        public void goBack(View view){
         finish();
         }
     }
