@@ -47,11 +47,8 @@ public class My_dialog extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Context context = getActivity();
-                        CharSequence text = "You pressed yes";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.show();
+                        if(listener!=null)
+                        listener.onFinishDialog(reqCode,"ok");
                     }
                 })
                 .setNegativeButton("no", new DialogInterface.OnClickListener() {
@@ -65,6 +62,12 @@ public class My_dialog extends DialogFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+            try {
+                this.listener = (ResultsListener) context;
+            } catch (ClassCastException e){
+                Toast.makeText(context,"hosting activity must implement ResultListener",Toast.LENGTH_LONG).show();
+                throw new ClassCastException("hosting activity must implement ResultListener");
+            }
     }
 
     public interface ResultsListener{

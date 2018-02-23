@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-public class MainActivity extends Activity implements My_dialog.ResultsListener{
+public class MainActivity extends Activity implements My_dialog.ResultsListener {
     RadioButton r1;
     RadioButton r2;
     Button b1;
