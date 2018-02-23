@@ -211,7 +211,12 @@ public class MainActivity extends Activity implements My_dialog.ResultsListener 
     }
 
     @Override
-    public void onFinishDialog(int requestCod, Object results) {
-
+    public void onFinishDialog(int requestCode, Object results) {
+    switch (requestCode){
+        case My_dialog.EXIT_DIALOG:
+        Toast.makeText(this,"bye bye",Toast.LENGTH_LONG).show();
+        finish();
+        System.exit(0);
+    }
     }
 }
