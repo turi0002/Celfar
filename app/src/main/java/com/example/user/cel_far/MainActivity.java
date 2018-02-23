@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements My_dialog.ResultsListener{
     RadioButton r1;
     RadioButton r2;
     Button b1;
@@ -192,7 +192,6 @@ public class MainActivity extends Activity {
                 Context context = getApplicationContext();
                 CharSequence text = "setting push";
                 int duration = Toast.LENGTH_SHORT;
-
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
                 return true;
@@ -202,14 +201,17 @@ public class MainActivity extends Activity {
                 int duration2 = Toast.LENGTH_SHORT;
                 Toast toast1 = Toast.makeText(context1, text2, duration2);
                 toast1.show();
-
-
                 return true;
             case R.id.exit:
-                this.finishAffinity();
+               My_dialog.newInstance(My_dialog.EXIT_DIALOG).show(getFragmentManager(), "Exit dialog");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onFinishDialog(int requestCod, Object results) {
+
     }
 }

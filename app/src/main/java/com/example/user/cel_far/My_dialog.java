@@ -1,5 +1,6 @@
 package com.example.user.cel_far;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -16,6 +17,7 @@ public class My_dialog extends DialogFragment {
     public final static int EXIT_DIALOG =1;
     public final static int PRECISION_DIALOG =2;
 
+    private ResultsListener listener;
     private int reqCode;
     public static My_dialog dlg=null;
 
@@ -28,10 +30,13 @@ public class My_dialog extends DialogFragment {
         return dlg;
     }
 
-    public  Dialog OnCreateDialog(Bundle savedInstanceState){
+    @Override
+    public  Dialog onCreateDialog(Bundle savedInstanceState){
         this.reqCode = getArguments().getInt("rc");
         if(reqCode == EXIT_DIALOG)
             return  buildExitDialog().create();
+        else
+            return null;
     }
 
     private AlertDialog.Builder buildExitDialog(){
@@ -58,7 +63,12 @@ public class My_dialog extends DialogFragment {
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        return super.onCreateDialog(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
     }
+
+    public interface ResultsListener{
+        void onFinishDialog(int requestCod, Object results);
+    }
+
 }
